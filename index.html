@@ -11,7 +11,9 @@
     <input type="file" id="file-upload" accept="image/*" />
     <button id="detect-btn">Detect Tumor</button>
     <canvas id="output-canvas"></canvas>
-    
+    <img id="processed-image" style="display: none; margin-top: 20px;" />
+
+    <script src="js/tiff.min.js"></script> <!-- Ensure this is before app.js -->
     <script src="app.js"></script>
 </body>
 </html>

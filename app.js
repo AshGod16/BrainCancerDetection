@@ -3,6 +3,7 @@ document.getElementById('detect-btn').addEventListener('click', sendToModel);
 
 function handleFileUpload(event) {
    const file = event.target.files[0];
+   console.log(file);
    const reader = new FileReader();
    reader.onload = function(e) {
       const img = new Image();
@@ -19,6 +20,24 @@ function handleFileUpload(event) {
 }
 
 async function sendToModel() {
-   // Placeholder function to connect to your model later
-   alert("Send image to the model here!");
-}
+    const fileInput = document.getElementById('file-upload');
+    const file = fileInput.files[0];
+    console.log(file);
+    const formData = new FormData();
+    formData.append('image', file);
+ 
+    const response = await fetch('http://127.0.0.1:5000/api/predict', {
+       method: 'POST',
+       body: formData
+    });
+    
+    const result = await response.json();
+    if (result.processedImage) {
+        // Display the processed image below the original image
+        const processedImageElement = document.getElementById('processed-image');
+        processedImageElement.src = result.processedImage; // Set the source to the processed image
+        processedImageElement.style.display = 'block'; // Make it visible
+    } else {
+        console.error("Error processing image:", result.error);
+    }
+ }
