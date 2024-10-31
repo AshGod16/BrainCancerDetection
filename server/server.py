@@ -5,27 +5,18 @@ import io
 import cv2
 from flask_cors import cross_origin
 import numpy as np
-from utils import *
+from app import *
 import base64
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
+app.config['BASE_DIR'] = BASE_DIR
 # CORS(app)  # This will allow CORS for all routes
 
-# Load model
-with open('models/ResUNet-model.json', 'r') as json_file:
-    json_savedModel= json_file.read()
-# load the model architecture 
-model_seg = tf.keras.models.model_from_json(json_savedModel)
-model_seg.load_weights('weights/ResUNet-weights.keras')
-adam = tf.keras.optimizers.Adam(learning_rate = 0.05, epsilon = 0.1)
-model_seg.compile(optimizer = adam, loss = focal_tversky, metrics = [tversky])
-
-with open('models/classifier-resnet-model.json', 'r') as json_file:
-    json_savedModel= json_file.read()
-# load the model  
-model = tf.keras.models.model_from_json(json_savedModel)
-model.load_weights('weights/classifier-resnet-weights.keras')
-model.compile(loss = 'categorical_crossentropy', optimizer='adam', metrics= ["accuracy"])
+model = load_classification_model(BASE_DIR)
+model_seg = load_segmentation_model(BASE_DIR)
 
 def encode_image_to_base64(image):
     if len(image.shape) == 2:  # Grayscale
