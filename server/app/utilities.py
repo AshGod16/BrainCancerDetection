@@ -76,3 +76,12 @@ def focal_tversky(y_true,y_pred):
     pt_1 = tversky(y_true, y_pred)
     gamma = 0.75
     return K.pow((1-pt_1), gamma)
+
+def Image_to_opencv(file):
+    image = Image.open(file.stream)
+    img = image.convert('RGB')
+    open_cv_image = np.array(img)
+    # Convert RGB to BGR
+    open_cv_image = open_cv_image[:, :, ::-1].copy()
+
+    return open_cv_image
