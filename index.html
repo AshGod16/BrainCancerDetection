@@ -9,11 +9,15 @@
 <body>
     <h1>Brain Tumor Detection App</h1>
     <input type="file" id="file-upload" accept="image/*" />
+    <div id="uploaded-label">Choose MRI Image</div>
     <button id="detect-btn">Detect Tumor</button>
-    <canvas id="output-canvas"></canvas>
-    <img id="processed-image" style="display: none; margin-top: 20px;" />
 
-    <script src="js/tiff.min.js"></script> <!-- Ensure this is before app.js -->
+    <div class="image-container">
+        <img id="image" alt="Uploaded MRI Image" />
+        <img id="processed-image" alt="Processed MRI Image" />
+    </div>
+
+    <script src="https://unpkg.com/tiff.js@latest/tiff.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

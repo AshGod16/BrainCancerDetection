@@ -1,11 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-}
 
-canvas {
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    max-width: 100%;
-}
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #file-upload, #detect-btn {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #007bff;
+            cursor: pointer;
+        }
+
+        #detect-btn {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        #detect-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #image, #processed-image {
+            max-width: 300px;
+            max-height: 300px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #processed-image {
+            display: none;
+        }
+
+        #uploaded-label {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }

@@ -28,11 +28,12 @@ def prediction(img, model, model_seg):
     #reshaping the image from 256,256,3 to 1,256,256,3
     img = np.reshape(img, (1,256,256,3))
 
-    is_defect = model.predict(img)
+    # is_defect = model.predict(img)
 
-    #if tumour is not present we append the details of the image to the list
-    if np.argmax(is_defect) == 0:
-      return None
+    # #if tumour is not present we append the details of the image to the list
+    # if np.argmax(is_defect) == 0:
+    # #   print('here')
+    #   return None
 
     #Creating a empty array of shape 1,256,256,1
     X = np.empty((1, 256, 256, 3))
@@ -47,8 +48,10 @@ def prediction(img, model, model_seg):
     #make prediction
     predict = model_seg.predict(X)
 
+    print("SUM", predict.round().astype(int).sum())
+
     #if the sum of predicted values is equal to 0 then there is no tumour
-    if predict.round().astype(int).sum() == 0:
+    if predict.round().astype(int).sum() < 1400:
         return None
     else:
     #if the sum of pixel values are more than 0, then there is tumour
