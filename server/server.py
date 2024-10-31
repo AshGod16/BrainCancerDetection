@@ -5,7 +5,7 @@ import io
 import cv2
 from flask_cors import cross_origin
 import numpy as np
-from utilities import *
+from utils import *
 import base64
 
 app = Flask(__name__)
