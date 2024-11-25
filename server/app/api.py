@@ -34,4 +34,4 @@ def predict():
 
         return jsonify({"message": "Image processed", "processedImage": f"data:image/png;base64,{encoded_image}"}), 200
     else:
-        return jsonify({"message": None, "processedImage": "No tumor detected"})
+        return jsonify({"message": None, "processedImage": f"data:image/png;base64,{open_cv_image}"}), 400
