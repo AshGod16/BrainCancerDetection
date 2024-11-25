@@ -105,17 +105,6 @@ BRAINCANCERDETECTION/
 3. Write appropriate tests
 4. Submit a pull request
 
-### 📝 Code Style
-- Follow PEP 8 guidelines for Python code
-- Use meaningful variable and function names
-- Include docstrings for all functions and classes
-
-## 🧪 Testing
-Run the test suite:
-```bash
-python -m pytest tests/
-```
-
 ## 🤝 Contributing
 1. Fork the repository
 2. Create a feature branch
