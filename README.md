@@ -84,13 +84,9 @@ BRAINCANCERDETECTION/
 4. View the detection results and segmentation overlay
 
 ### 🔗 API Endpoints
-- `POST /api/detect`
+- `POST /api/predict`
   - Upload an image for cancer detection
-  - Returns classification results and confidence scores
-
-- `POST /api/segment`
-  - Upload an image for tumor segmentation
-  - Returns segmentation mask and tumor region coordinates
+  - Returns classification results
 
 ## 🤖 Model Information
 - **Classification Model**: ResNet-based architecture trained on brain MRI datasets
