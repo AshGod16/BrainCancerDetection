@@ -1,4 +1,4 @@
-# 🧠 Brain Cancer Detection System
+# 🧠 MedicAI Brain Cancer Detection System
 
 ## 🔍 Overview
 This project implements a deep learning-based system for detecting and classifying brain cancer from medical imaging data. It utilizes ResNet and U-Net architectures to provide both classification and segmentation capabilities for medical professionals.
